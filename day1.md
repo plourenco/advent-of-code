@@ -1,8 +1,8 @@
-# Day 1 (Part 1)
+# Day 1
 
 https://adventofcode.com/2021/day/1
 
-## Example
+## Examples
 
 ```
 199 (N/A - no previous measurement)
@@ -17,18 +17,6 @@ https://adventofcode.com/2021/day/1
 263 (increased)
 ```
 
-## Solutions
-
-### Python by Pedro Lourenço
-
-```python
-sum(x > list[i - 1] for i, x in enumerate(list))
-```
-
-# Day 1 (Part 2)
-
-## Example
-
 ```
 A: 607 (N/A - no previous sum)
 B: 618 (increased)
@@ -40,7 +28,15 @@ G: 769 (increased)
 H: 792 (increased)
 ```
 
-## Solutions
+## Solutions in Part 1
+
+### Python by Pedro Lourenço
+
+```python
+sum(x > list[i - 1] for i, x in enumerate(list))
+```
+
+## Solutions in Part 2
 
 ### Python by Pedro Lourenço
 

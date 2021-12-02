@@ -28,3 +28,10 @@ z = sum(v*(1 if c[0] == 'd' else -1) if c[0] != 'f' else complex(0, v) for c, v 
 ```javascript
 data.reduce(([x, y], [c, v]) => c[0] == "f" ? [x + v, y] : [x, y + v * (c[0] == "d" ? 1 : -1)], [0, 0]).reduce((p, c) => p*c, 1)
 ```
+
+### JS by Pedro Lourenço
+
+```javascript
+data.reduce(([h, de], [d, v]) => d[0] == 'f' ? [h + v, de] : [h, de + (d[0] == 'd' || -1) * v], [0, 0]).reduce((a, v) => a * v)
+```
+

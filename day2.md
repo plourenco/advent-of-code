@@ -13,9 +13,7 @@ down 8
 forward 2
 ```
 
-## Solutions
-
-# Part 1
+## Solutions in Part 1
 
 ### Python by Tomas Roun
 
@@ -34,4 +32,6 @@ data.reduce(([x, y], [c, v]) => c[0] == "f" ? [x + v, y] : [x, y + v * (c[0] == 
 ```javascript
 data.reduce(([h, de], [d, v]) => d[0] == 'f' ? [h + v, de] : [h, de + (d[0] == 'd' || -1) * v], [0, 0]).reduce((a, v) => a * v)
 ```
+
+## Solutions in Part 2
 

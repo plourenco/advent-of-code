@@ -11,4 +11,4 @@ Just submit a pull request and add your solution to one of the days.
 
 ## Is this code golfing?
 
-Even though it would be interesting to see short solutions, the intention is not code golfing. It would be unfair to restrict or rank the solutions according to their character length, the aim is to build an interesting count of different approaches, so feel free to add spaces and linebreaks! 😄
+Even though it would be interesting to see short solutions, **the intention is not code golfing**. It would be unfair to restrict or rank the solutions according to their character length, the aim is to build an interesting count of different approaches, so feel free to add spaces and linebreaks! 😄

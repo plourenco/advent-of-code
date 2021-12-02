@@ -35,3 +35,8 @@ data.reduce(([h, de], [d, v]) => d[0] == 'f' ? [h + v, de] : [h, de + (d[0] == '
 
 ## Solutions in Part 2
 
+### JS by Pedro Lourenço
+
+```javascript
+data.reduce(([h, de, a], [d, v]) => d[0] == 'f' ? [h + v, de + a * v, a] : [h, de, a + (d[0] == 'd' || -1) * v], [0, 0, 0]).slice(0, 2).reduce((acc, v) => acc * v);
+```

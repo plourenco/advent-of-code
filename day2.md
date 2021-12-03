@@ -33,6 +33,17 @@ data.reduce(([x, y], [c, v]) => c[0] == "f" ? [x + v, y] : [x, y + v * (c[0] == 
 data.reduce(([h, de], [d, v]) => d[0] == 'f' ? [h + v, de] : [h, de + (d[0] == 'd' || -1) * v], [0, 0]).reduce((a, v) => a * v)
 ```
 
+### F# by Pedro Lourenço
+
+```f#
+Seq.fold (fun [h; d] (x, y) -> 
+  match x with 
+  | "forward" -> [h + y; d] 
+  | "up" -> [h; d - y] 
+  | "down" -> [h; d + y] 
+  | _ -> [h; d]) [0; 0] |> Seq.fold (*) 1;;
+```
+
 ## Solutions in Part 2
 
 ### JS by Pedro Lourenço

@@ -64,6 +64,15 @@ char findMostCommonBit(final char[][] binaries, final int position) {
 }
 ```
 
+```javascript
+gamma = data
+  .reduce((acc, x) => x.map((y, i) => acc[i] + (y || -1)), Array(data[0].length).fill(0))
+  .map(x => 1 - x >>> -1)
+  .join('');
+
+parseInt(gamma, 2) * (parseInt(gamma, 2)^(Math.pow(2, gamma.length) - 1)));
+```
+
 # Part 2
 
 ### Java 17 by Nuno Azevedo

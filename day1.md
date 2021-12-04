@@ -39,7 +39,7 @@ sum(x > list[i - 1] for i, x in enumerate(list))
 ### Java 17 by Nuno Azevedo
 
 ```java
-private static int countNumberOfDepthIncreases(final List<Integer> measurements) {
+int countNumberOfDepthIncreases(final List<Integer> measurements) {
     int increases = 0;
     int last = 0;
 
@@ -65,7 +65,7 @@ sum(sum(list[i-3:i]) > sum(list[i-4:i-1]) for i in range(3, len(list)))
 ### Java 17 by Nuno Azevedo
 
 ```java
-private static int countNumberOfDepthIncreasesSlidingWindow(final List<Integer> measurements) {
+int countNumberOfDepthIncreasesSlidingWindow(final List<Integer> measurements) {
     int increases = 0;
     int windowA = 0;
     int windowB = 0;

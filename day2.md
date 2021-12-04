@@ -44,10 +44,60 @@ Seq.fold (fun [h; d] (x, y) ->
   | _ -> [h; d]) [0; 0] |> Seq.fold (*) 1;;
 ```
 
+### Java 17 by Nuno Azevedo
+
+```java
+int processCommands(final List<Command> commands) {
+    int horizontal = 0;
+    int depth = 0;
+
+    for (final Command command : commands) {
+        switch (command.direction()) {
+            case FORWARD -> horizontal += command.units();
+            case UP -> depth -= command.units();
+            case DOWN -> depth += command.units();
+        }
+    }
+
+    return horizontal * depth;
+}
+
+record Command(Direction direction, int units) { }
+
+enum Direction {
+  FORWARD,
+  UP,
+  DOWN
+}
+```
+
 ## Solutions in Part 2
 
 ### JS by Pedro Lourenço
 
 ```javascript
 data.reduce(([h, de, a], [d, v]) => d[0] == 'f' ? [h + v, de + a * v, a] : [h, de, a + (d[0] == 'd' || -1) * v], [0, 0, 0]).slice(0, 2).reduce((acc, v) => acc * v);
+```
+
+### Java 17 by Nuno Azevedo
+
+```java
+int processCommandsWithAim(final List<Command> commands) {
+    int horizontal = 0;
+    int depth = 0;
+    int aim = 0;
+
+    for (final Command command : commands) {
+        switch (command.direction()) {
+            case FORWARD -> {
+                horizontal += command.units();
+                depth += aim * command.units();
+            }
+            case UP -> aim -= command.units();
+            case DOWN -> aim += command.units();
+        }
+    }
+
+    return horizontal * depth;
+}
 ```

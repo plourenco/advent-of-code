@@ -36,6 +36,24 @@ H: 792 (increased)
 sum(x > list[i - 1] for i, x in enumerate(list))
 ```
 
+### Java 17 by Nuno Azevedo
+
+```java
+private static int countNumberOfDepthIncreases(final List<Integer> measurements) {
+    int increases = 0;
+    int last = 0;
+
+    for (final int measurement : measurements) {
+        if (measurement > last) {
+            increases++;
+        }
+        last = measurement;
+    }
+
+    return Math.max(increases - 1, 0); // Skip first measurement.
+}
+```
+
 ## Solutions in Part 2
 
 ### Python by Pedro Lourenço
@@ -44,3 +62,24 @@ sum(x > list[i - 1] for i, x in enumerate(list))
 sum(sum(list[i-3:i]) > sum(list[i-4:i-1]) for i in range(3, len(list)))
 ```
 
+### Java 17 by Nuno Azevedo
+
+```java
+private static int countNumberOfDepthIncreasesSlidingWindow(final List<Integer> measurements) {
+    int increases = 0;
+    int windowA = 0;
+    int windowB = 0;
+    int windowC = 0;
+
+    for (final int measurement : measurements) {
+        if (windowB + windowC + measurement > windowA + windowB + windowC) {
+            increases++;
+        }
+        windowA = windowB;
+        windowB = windowC;
+        windowC = measurement;
+    }
+
+    return Math.max(increases - 3, 0); // Skip first window of measurements.
+}
+```

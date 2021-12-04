@@ -64,6 +64,8 @@ char findMostCommonBit(final char[][] binaries, final int position) {
 }
 ```
 
+### Javascript by Pedro Lourenço
+
 ```javascript
 gamma = data
   .reduce((acc, x) => x.map((y, i) => acc[i] + (y || -1)), Array(data[0].length).fill(0))

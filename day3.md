@@ -32,3 +32,65 @@ d = np.round(np.sum(d, axis=0)/len(d)).astype(int)
 _ = lambda x: int("".join(map(str, x)), 2)
 _(d) * _(1-d)
 ```
+
+### Java 17 by Nuno Azevedo
+
+```java
+int calculatePowerConsumption(final char[][] binaries) {
+    final var gammaRate = new StringBuilder();
+    final var epsilonRate = new StringBuilder();
+
+    for (int position = 0; position < binaries[0].length; position++) {
+        final char mostCommonBit = findMostCommonBit(binaries, position);
+        gammaRate.append(mostCommonBit);
+        epsilonRate.append(mostCommonBit ^ ONE); // Flip the bit using XOR.
+    }
+
+    return Integer.parseInt(gammaRate.toString(), 2) * Integer.parseInt(epsilonRate.toString(), 2);
+}
+
+char findMostCommonBit(final char[][] binaries, final int position) {
+    int bit0 = 0;
+    int bit1 = 0;
+
+    for (final char[] binary : binaries) {
+        switch (binary[position]) {
+            case ZERO -> bit0++;
+            case ONE -> bit1++;
+        }
+    }
+
+    return bit0 > bit1 ? ZERO : ONE;
+}
+```
+
+# Part 2
+
+### Java 17 by Nuno Azevedo
+
+```java
+int calculateLifeSupportRating(final char[][] binaries) {
+    char[][] oxygenRatings = binaries;
+    char[][] co2Ratings = binaries;
+
+    for (int position = 0; position < binaries[0].length; position++) {
+        final int pos = position;
+
+        if (oxygenRatings.length > 1) {
+            final char mostCommonBit = findMostCommonBit(oxygenRatings, position);
+            oxygenRatings = Arrays.stream(oxygenRatings)
+                    .filter(binary -> binary[pos] == mostCommonBit)
+                    .toArray(char[][]::new);
+        }
+
+        if (co2Ratings.length > 1) {
+            final char leastCommonBit = Character.forDigit(findMostCommonBit(co2Ratings, position) ^ ONE, 2);
+            co2Ratings = Arrays.stream(co2Ratings)
+                    .filter(binary -> binary[pos] == leastCommonBit)
+                    .toArray(char[][]::new);
+        }
+    }
+
+    return Integer.parseInt(new String(oxygenRatings[0]), 2) * Integer.parseInt(new String(co2Ratings[0]), 2);
+}
+```

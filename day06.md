@@ -8,7 +8,7 @@ https://adventofcode.com/2021/day/6
 3, 4, 3, 1, 2
 ```
 
-## Solutions in Part 1
+## Solutions
 
 ### Python by Pedro Lourenço
 
@@ -29,6 +29,4 @@ while days > 0:
 
 result = sum(counters)
 ```
-
-## Solutions in Part 2
 

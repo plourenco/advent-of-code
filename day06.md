@@ -30,3 +30,19 @@ while days > 0:
 result = sum(counters)
 ```
 
+### Python by Pedro Lourenço (simplified)
+
+```python
+counters = [0 for i in range(9)]
+days = 256
+
+for v in fish:
+  counters[min(8, v)] += 1
+
+while days > 0:
+  days -= 1
+  new_fish = counters.pop(0)
+  counters.append(new_fish)
+  counters[6] += new_fish
+```
+

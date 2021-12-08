@@ -10,6 +10,8 @@ https://adventofcode.com/2021/day/6
 
 ## Solutions in Part 1
 
+### Python by Pedro Lourenço
+
 ```python
 counters = [0 for i in range(9)]
 days = 80
